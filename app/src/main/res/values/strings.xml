@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FindHome</string>
+    <string name="price_label">Price $  %1$.2f</string>
+    <string name="address_label">Address: %1$s, %2$s, %3$s, %4$s</string>
+    <string name="bedroom_label">No. of bedrooms %1$.0f</string>
+    <string name="bathroom_label">No. of bathrooms %1$.1f</string>
+    <string name="error_string">We are experiencing technical issues at moment. Please try after some time.</string>
+</resources>
