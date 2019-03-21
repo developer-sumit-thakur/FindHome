@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">FindHome</string>
+    <string name="spinner_hint">Select page</string>
     <string name="price_label">Price $  %1$.2f</string>
     <string name="address_label">Address: %1$s, %2$s, %3$s, %4$s</string>
     <string name="bedroom_label">No. of bedrooms %1$.0f</string>

@@ -48,13 +48,13 @@ class TruliaService {
         dataService = retrofit.create<ServiceInterface>(ServiceInterface::class.java)
     }
 
-    fun getListings(responseListener: ResponseListener): Observable<List<Homes>>? {
+    fun getListings(start: Int, end: Int, responseListener: ResponseListener): Observable<List<Homes>>? {
         var retVal: Observable<List<Homes>>? = null
 
         try {
             var hashMap = HashMap<String, Int>()
-            hashMap.put("start", 0)
-            hashMap.put("count", 5)
+            hashMap.put("start", start)
+            hashMap.put("count", end)
 
             dataService.getListing(hashMap)
                     .subscribeOn(Schedulers.io())

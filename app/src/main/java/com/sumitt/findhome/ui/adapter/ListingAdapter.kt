@@ -31,6 +31,10 @@ class ListingAdapter(private val activity: FragmentActivity?, private var listin
         } else 0
     }
 
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
     override fun getItemViewType(position: Int): Int {
         return position
     }

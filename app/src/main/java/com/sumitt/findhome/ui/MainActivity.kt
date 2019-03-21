@@ -13,6 +13,24 @@ import com.sumitt.findhome.ui.fragments.ShowHomesFragment
  * @author sumit.T
  * */
 class MainActivity : AppCompatActivity(), ShowHomesFragment.FragmentListener {
+    lateinit var errorText: TextView
+    lateinit var container: FrameLayout
+    lateinit var progress_container: FrameLayout
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        errorText = findViewById(R.id.error_text)
+        container = findViewById(R.id.fragment_container)
+        progress_container = findViewById(R.id.loadingBar)
+        progress_container.visibility = View.VISIBLE
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
+                    ShowHomesFragment(), ShowHomesFragment.TAG).commit()
+        }
+    }
+
     override fun onSuccess() {
         progress_container?.apply {
             visibility = View.GONE
@@ -28,26 +46,6 @@ class MainActivity : AppCompatActivity(), ShowHomesFragment.FragmentListener {
         }
         errorText?.apply {
             setText(R.string.error_string)
-        }
-    }
-
-    lateinit var errorText: TextView
-
-    lateinit var container: FrameLayout
-
-    lateinit var progress_container: FrameLayout
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        errorText = findViewById(R.id.error_text)
-        container = findViewById(R.id.fragment_container)
-        progress_container = findViewById(R.id.loadingBar)
-        progress_container.visibility = View.VISIBLE
-
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
-                    ShowHomesFragment(), ShowHomesFragment.TAG).commit()
         }
     }
 }
